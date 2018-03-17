@@ -1,11 +1,3 @@
-'''
-facechop.py
-
--Takes an image and detects a face in it.
--For each face, an image file is generated
-    -the images are strictly of the faces
-'''
-
 import cv2
 
 def facechop(image, count):
