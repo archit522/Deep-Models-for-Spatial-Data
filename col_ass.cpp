@@ -171,11 +171,12 @@ void printMST(int c, int src){
     //cout<<checklist[u]<<endl;
     if(checklist[u] == false){
       if(u != src){
-        //cout<<p[u]<<"---------"<<u<<endl;
         if(p[u] < u){
+          //cout<<p[u]<<"---------"<<u<<endl;
           ex.push(make_pair(p[u], u));
         }
         else{
+          //cout<<u<<"---------"<<p[u]<<endl;
           ex.push(make_pair(u, p[u]));
         }
       }
@@ -237,15 +238,12 @@ void printMST(int c, int src){
       temp.push(make_pair(second, first));
       while(first == ex.top().first && !ex.empty()){
         //cout<<"First Loop"<<endl;
-        //cout<<"(---"<<ex.size()<<"-----======"<<temp.size()<<"---)"<<endl;
-        //cout<<"Yes "<<i<<" "<<ex.top().first<<" "<<first<<endl;
+        cout<<"(---"<<ex.size()<<"-----======"<<temp.size()<<"---)"<<endl;
+        cout<<"Yes "<<i<<" "<<ex.top().first<<" "<<first<<endl;
         int temp_first = ex.top().first;
         int temp_second = ex.top().second;
         ex.pop();
         temp.push(make_pair(temp_second, temp_first));
-        if(ex.size() == 18446744073709551611){
-          break;
-        }
         i++;
       }
       while(!temp.empty()){
@@ -254,6 +252,10 @@ void printMST(int c, int src){
         //cout<<"Second one "<<temp.top().second<<" "<<temp.top().first<<endl;
         //cout<<temp.top().second<<" "<<temp.top().first<<endl;
         temp.pop();
+      }
+      //cout<<"Ex.size() = "<<ex.size()<<" "<<ex.empty()<<endl;
+      if(ex.empty()){
+        break;
       }
       //cout<<endl;
       //cout<<"--"<<i<<"--"<<endl;
